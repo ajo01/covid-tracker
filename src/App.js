@@ -27,6 +27,7 @@ class App extends React.Component {
 
         return (
             <div className={styles.container}>
+                <h1>World Covid Tracker</h1>
                 <Cards data={data}/>
                 <CountryPicker handleCountryChange={this.handleCountryChange}/>
                 <Chart data={data} country={country}/>
