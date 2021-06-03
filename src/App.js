@@ -3,6 +3,7 @@ import React from 'react'
 import {Cards, Chart, CountryPicker} from './components'
 import styles from './App.module.css'
 import {fetchData} from './api'
+import {Typography} from '@material-ui/core'
 
 class App extends React.Component {
     state = {
@@ -27,7 +28,7 @@ class App extends React.Component {
 
         return (
             <div className={styles.container}>
-                <h1>World Covid Tracker</h1>
+                <Typography variant="h2">World Covid Tracker</Typography>
                 <Cards data={data}/>
                 <CountryPicker handleCountryChange={this.handleCountryChange}/>
                 <Chart data={data} country={country}/>
