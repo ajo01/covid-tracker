@@ -14,6 +14,9 @@ const CountryPicker = ({handleCountryChange}) => {
         fetchAPI()
     }, [setFetchedCountries])
 
+    const globalOptionHandler = () => {
+        window.location.reload();
+    }
 
     return (
         <FormControl className={styles.formControl}>
