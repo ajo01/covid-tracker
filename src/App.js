@@ -17,8 +17,8 @@ import {
 class App extends React.Component {
     state = {
         data: {},
-        countries: '',
-        primaryMode: true
+        countries: '', 
+        primaryModeOn: true
     }
 
     async componentDidMount() {
@@ -31,6 +31,12 @@ class App extends React.Component {
         const fetchedData = await fetchData(country)
 
         this.setState({ data: fetchedData, country: country })
+    }
+
+    toggleMode = () => {
+        const primaryMode = this.state.primaryModeOn
+        this.setState({primaryModeOn:!primaryMode})
+        console.log(primaryMode)
     }
 
 
@@ -47,7 +53,7 @@ class App extends React.Component {
                         <Route exact path="/">
                             <ThemeProvider theme={theme}>
                                 <Box mt={5}>
-                                    <Button variant="contained" color="primary">Check Canada Vaccination Rates</Button>
+                                    <Button variant="contained" color="primary" onClick={this.toggleMode}>Check Canada Vaccination Rates</Button>
                                 </Box>
                             </ThemeProvider>
                             <Cards data={data} />

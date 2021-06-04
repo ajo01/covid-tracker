@@ -1,5 +1,5 @@
 
-import { Typography, Button, ThemeProvider, Box } from '@material-ui/core'
+import { Button, ThemeProvider, Box } from '@material-ui/core'
 import theme from '../UI/theme'
 
 const Vaccine = () => {
