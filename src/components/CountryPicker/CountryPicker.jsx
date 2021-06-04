@@ -14,10 +14,6 @@ const CountryPicker = ({handleCountryChange}) => {
         fetchAPI()
     }, [setFetchedCountries])
 
-    const globalOptionHandler = () => {
-        window.location.reload();
-    }
-
     return (
         <FormControl className={styles.formControl}>
             <NativeSelect default="" onChange={(e) => handleCountryChange(e.target.value)}>

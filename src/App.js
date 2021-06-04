@@ -5,13 +5,14 @@ import styles from './App.module.css'
 import { fetchData } from './api'
 import { Typography, Button, ThemeProvider, Box } from '@material-ui/core'
 import theme from './UI/theme'
+import Vaccine from './vaccine/Vaccine'
 
 
 import {
     BrowserRouter as Router,
     Switch,
     Route
-  } from "react-router-dom";
+} from "react-router-dom";
 
 class App extends React.Component {
     state = {
@@ -41,14 +42,25 @@ class App extends React.Component {
                 <Box mt={5}>
                     <Typography variant="h2">World Covid Tracker</Typography>
                 </Box>
-                <ThemeProvider theme={theme}>
-                    <Box mt={5}>
-                        <Button variant="contained" color="primary">Check Canada Vaccination Rates</Button>
-                    </Box>
-                </ThemeProvider>
-                <Cards data={data} />
-                <CountryPicker handleCountryChange={this.handleCountryChange} />
-                <Chart data={data} country={country} />
+                <Router>
+                    <Switch>
+                        <Route exact path="/">
+                            <ThemeProvider theme={theme}>
+                                <Box mt={5}>
+                                    <Button variant="contained" color="primary">Check Canada Vaccination Rates</Button>
+                                </Box>
+                            </ThemeProvider>
+                            <Cards data={data} />
+                            <CountryPicker handleCountryChange={this.handleCountryChange} />
+                            <Chart data={data} country={country} />
+                        </Route>
+
+                        <Route path="/vaccine">
+                            <Vaccine/>
+                        </Route>
+                    </Switch>
+
+                </Router>
             </div>
         )
     }
