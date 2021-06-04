@@ -6,10 +6,18 @@ import { fetchData } from './api'
 import { Typography, Button, ThemeProvider, Box } from '@material-ui/core'
 import theme from './UI/theme'
 
+
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route
+  } from "react-router-dom";
+
 class App extends React.Component {
     state = {
         data: {},
-        countries: ''
+        countries: '',
+        primaryMode: true
     }
 
     async componentDidMount() {
@@ -30,10 +38,12 @@ class App extends React.Component {
 
         return (
             <div className={styles.container}>
-                <Typography variant="h2">World Covid Tracker</Typography>
+                <Box mt={5}>
+                    <Typography variant="h2">World Covid Tracker</Typography>
+                </Box>
                 <ThemeProvider theme={theme}>
                     <Box mt={5}>
-                    <Button variant="contained" color="primary">Check Canada Vaccination Rates</Button>
+                        <Button variant="contained" color="primary">Check Canada Vaccination Rates</Button>
                     </Box>
                 </ThemeProvider>
                 <Cards data={data} />
