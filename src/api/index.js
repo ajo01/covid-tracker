@@ -2,6 +2,8 @@ import axios from 'axios'
 
 const url = 'https://covid19.mathdro.id/api'
 
+const vaccineUrl = 'https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/vaccinations.json'
+
 export const fetchData = async (country) => {
     let changeableUrl = url
 
@@ -45,6 +47,19 @@ export const fetchCountries = async () => {
     try {
         const {data: {countries}} = await axios.get(`${url}/countries`)
         return countries.map((country)=> country.name)
+
+    } catch(e) {
+        console.log(e)
+    }
+}
+
+export const fetchVaccineData = async () => {
+    try {
+        var vaccineData = JSON.parse(vaccineUrl)
+        for (var i = 0; i < vaccineData.length; i++) {
+            var recentData = vaccineData.data[vaccineData.data.length];
+            console.log(recentData);
+        }
 
     } catch(e) {
         console.log(e)
