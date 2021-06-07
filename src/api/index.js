@@ -57,9 +57,9 @@ export const fetchVaccineData = async () => {
     try {
         const {data: {data, last_updated}} = await axios.get(vaccineUrl)
         const modifiedData = {
-            totalRecoveries: data.total_recoveries,
-            totalVaccinations: data.total_vaccinations,
-            vaccinatedToday: data.total_vaccinated,
+            totalRecoveries: data[0].total_recoveries,
+            totalVaccinations: data[0].total_vaccinations,
+            vaccinatedToday: data[0].total_vaccinated,
             last_updated
         }
         return modifiedData
