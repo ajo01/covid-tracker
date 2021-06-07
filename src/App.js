@@ -53,6 +53,7 @@ class App extends React.Component {
                   </Link>
                 </Box>
               </ThemeProvider>
+              
               <Cards data={data} />
               <CountryPicker handleCountryChange={this.handleCountryChange} />
               <Chart data={data} country={country} />
