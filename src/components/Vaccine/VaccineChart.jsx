@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Bar } from "react-chartjs-2";
 import { fetchVaccineData } from "../../api";
-import { Typography, Grid} from "@material-ui/core";
 
-const VaccineChart = ({data: {totalRecoveries, totalVaccinations, vaccinatedToday, last_updated}}) => {
+import styles from './VaccineChart.module.css'
+
+const VaccineChart = ({data: {totalRecoveries, totalVaccinations, vaccinatedToday}}) => {
   const [vaccineData, setVaccineData] = useState([]);
 
   useEffect(() => {
@@ -20,7 +21,7 @@ const VaccineChart = ({data: {totalRecoveries, totalVaccinations, vaccinatedToda
       totalRecoveries
       ? (
       <Bar data={{
-        labels: ['Total Recoveries, Total Vaccinations, Total Vaccinated Today'],
+        labels: ['Total Recoveries', 'Total Vaccinations', 'Total Vaccinated Today'],
         datasets: [{
             label: 'People',
             backgroundColor: [
@@ -40,8 +41,7 @@ const VaccineChart = ({data: {totalRecoveries, totalVaccinations, vaccinatedToda
   )
 
   return (
-    <div>
-      Chart
+    <div className={styles.container}>
       {barChart}
     </div>
   );
