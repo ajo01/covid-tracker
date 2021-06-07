@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const url = 'https://covid19.mathdro.id/api'
 
-const vaccineUrl = 'https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/vaccinations.json'
+const vaccineUrl = 'https://api.covid19tracker.ca/summary'
 
 export const fetchData = async (country) => {
     let changeableUrl = url
@@ -55,11 +55,14 @@ export const fetchCountries = async () => {
 
 export const fetchVaccineData = async () => {
     try {
-        var vaccineData = JSON.parse(vaccineUrl)
-        for (var i = 0; i < vaccineData.length; i++) {
-            var recentData = vaccineData.data[vaccineData.data.length];
-            console.log(recentData);
+        const {data: {data, last_updated}} = await axios.get(vaccineUrl)
+        const modifiedData = {
+            totalRecoveries: data.total_recoveries,
+            totalVaccinations: data.total_vaccinations,
+            vaccinatedToday: data.total_vaccinated,
+            last_updated
         }
+        return modifiedData
 
     } catch(e) {
         console.log(e)

@@ -2,10 +2,11 @@ import { Button, ThemeProvider, Box } from "@material-ui/core";
 import theme from "../../UI/theme";
 import VaccineChart from "./VaccineChart";
 import { Link } from "react-router-dom";
+import React from "react";
 
 const Vaccine = () => {
   return (
-    <div>
+    <React.Fragment>
       <ThemeProvider theme={theme}>
         <Box mt={5}>
           <Link to="/">
@@ -16,7 +17,7 @@ const Vaccine = () => {
         </Box>
       </ThemeProvider>
       <VaccineChart />
-    </div>
+    </React.Fragment>
   );
 };
 

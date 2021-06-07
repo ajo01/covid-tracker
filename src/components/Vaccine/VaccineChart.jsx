@@ -1,25 +1,29 @@
-import React, { useState, useEffect } from 'react'
-import { Line, Bar } from 'react-chartjs-2'
-import { fetchVaccineData } from '../../api'
+import React, { useState, useEffect } from "react";
+import { Line, Bar } from "react-chartjs-2";
+import { fetchVaccineData } from "../../api";
 
+const VaccineChart = () => {
+  const [vaccineData, setVaccineData] = useState([]);
 
-const VaccineChart =  () => {
-    const [vaccineData, setVaccineData] = useState([])
+  useEffect(() => {
+    const fetchAPI = async () => {
+      const initialVaccineData = await fetchVaccineData();
+      setVaccineData(initialVaccineData);
+    };
+    fetchAPI();
+  }, []);
 
-    useEffect(() => {
-        const fetchAPI = async () => {
-            const initialVaccineData = await fetchVaccineData()
-            setVaccineData(initialVaccineData);
-        }
-        fetchAPI()
-    }, [])
+  console.log(vaccineData);
 
-    console.log(vaccineData)
+  const barChart = (
+      <Bar></Bar>
+  )
 
+  return (
+    <div>
+      Chart
+    </div>
+  );
+};
 
-    return (
-        <div>Chart</div>
-    )
-}
-
-export default VaccineChart
+export default VaccineChart;
