@@ -4,7 +4,7 @@ import styles from "./VaccineCards.module.css";
 
 import { Box, Typography, Grid } from "@material-ui/core";
 
-const VaccineCards = (props) => {
+const VaccineCards = ({data: {totalRecoveries, totalVaccinations, vaccinatedToday, last_updated}}) => {
   return (
     <div className={styles.container}>
       <Typography gutterBottom variant="h4" component="h2">
@@ -14,23 +14,23 @@ const VaccineCards = (props) => {
         <CardComponent
           className={styles.recoveries}
           cardTitle="Total Recoveries"
-          value={props.totalRecoveries}
-          lastUpdate={props.last_updated}
-          cardSubtitle="Number of active cases from COVID-19."
+          value={totalRecoveries}
+          lastUpdate={last_updated}
+          cardSubtitle="Total Recoveries from COVID-19."
         />
         <CardComponent
           className={styles.vaccinations}
-          cardTitle="Total Recoveries"
-          value={props.totalRecoveries}
-          lastUpdate={props.last_updated}
-          cardSubtitle="Number of active cases from COVID-19."
+          cardTitle="Total Vaccinations"
+          value={totalVaccinations}
+          lastUpdate={last_updated}
+          cardSubtitle="Total Vaccinations from COVID-19."
         />
         <CardComponent
           className={styles.todayVaccinations}
           cardTitle="Total Recoveries"
-          value={props.totalRecoveries}
-          lastUpdate={props.last_updated}
-          cardSubtitle="Number of active cases from COVID-19."
+          value={vaccinatedToday}
+          lastUpdate={last_updated}
+          cardSubtitle="Total Vaccinations for COVID-19 today."
         />
       </Grid>
     </div>
