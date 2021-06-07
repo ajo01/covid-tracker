@@ -2,7 +2,7 @@ import React from "react";
 
 import { Cards, Chart, CountryPicker } from "./components";
 import styles from "./App.module.css";
-import { fetchData } from "./api";
+import { fetchData, fetchVaccineData } from "./api";
 import { Typography, Button, ThemeProvider, Box } from "@material-ui/core";
 import theme from "./UI/theme";
 import Vaccine from "./components/Vaccine/Vaccine";
@@ -13,13 +13,15 @@ class App extends React.Component {
   state = {
     data: {},
     countries: "",
-    primaryModeOn: true,
+    vaccineData: {}
   };
 
   async componentDidMount() {
     const fetchedData = await fetchData();
+    const fetchedVaccineData = await fetchVaccineData();
 
     this.setState({ data: fetchedData });
+    this.setState({vaccineData: fetchedVaccineData})
   }
 
   handleCountryChange = async (country) => {
@@ -29,7 +31,7 @@ class App extends React.Component {
   };
 
   render() {
-    const { data, country } = this.state;
+    const { data, country, vaccineData } = this.state;
 
     return (
       <div className={styles.container}>
@@ -57,7 +59,7 @@ class App extends React.Component {
             </Route>
 
             <Route path="/vaccine">
-              <Vaccine />
+              <Vaccine data={vaccineData}/>
             </Route>
           </Switch>
         </Router>

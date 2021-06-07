@@ -4,7 +4,7 @@ import VaccineChart from "./VaccineChart";
 import { Link } from "react-router-dom";
 import React from "react";
 
-const Vaccine = () => {
+const Vaccine = (props) => {
   return (
     <React.Fragment>
       <ThemeProvider theme={theme}>
@@ -16,7 +16,7 @@ const Vaccine = () => {
           </Link>
         </Box>
       </ThemeProvider>
-      <VaccineChart />
+      <VaccineChart data={props.data}/>
     </React.Fragment>
   );
 };
