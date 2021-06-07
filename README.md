@@ -5,7 +5,7 @@ Data Visualization tool displaying active cases, recoveries, deaths, and vaccina
 
 Built with React and Material UI.
 
-Vaccination numbers from Our World in Data
+Vaccination numbers from covid19tracker API
 
 commands:
 npm start

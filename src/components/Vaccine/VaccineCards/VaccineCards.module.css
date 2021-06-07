@@ -6,13 +6,20 @@
   }
 
   .recoveries{
-    border-bottom: 10px solid #e07a5f;
-  }
-
-  .vaccinations{
     border-bottom: 10px solid #81b29a;
   }
 
+  .totalInfected{
+    border-bottom: 10px solid #e07a5f;
+  }
+
+
   .todayVaccinations{
+    border-bottom: 10px solid #F2CC8F;
+  }
+
+  .vaccinations{
     border-bottom: 10px solid #3d405b;
   }
+
+

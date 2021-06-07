@@ -10,7 +10,6 @@ import React from "react";
 
 import VaccineCards from "./VaccineCards/VaccineCards";
 
-import styles from "./Vaccine.module.css";
 
 const Vaccine = (props) => {
   return (

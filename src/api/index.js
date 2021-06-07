@@ -60,6 +60,7 @@ export const fetchVaccineData = async () => {
             totalRecoveries: data[0].total_recoveries,
             totalVaccinations: data[0].total_vaccinations,
             vaccinatedToday: data[0].total_vaccinated,
+            totalInfected: data[0].total_cases,
             last_updated
         }
         return modifiedData
